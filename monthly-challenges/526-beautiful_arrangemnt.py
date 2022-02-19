@@ -1,4 +1,7 @@
 class Solution:
+
+    # https://leetcode.com/problems/beautiful-arrangement/
+    
     def countArrangement(self, n: int) -> int:
         self.res = 0
         perms = [i for i in range(1, n+1)]
