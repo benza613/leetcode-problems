@@ -15,7 +15,7 @@ class Solution:
 
         for row in range(self.ROWS):
             for col in range(self.COLS):
-                if self.backtrack2(row, col, word):
+                if self.backtrack(row, col, word):
                     return True
 
         # no match found after all exploration
