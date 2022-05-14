@@ -31,7 +31,7 @@ class Leetcode_readme:
                         leet_link = leet_header['href']
                         leet_difficulty = parsed_html.body.find('h3').text
                         
-                        results.append((int(leet_id), leet_name, leet_link, f, leet_difficulty))
+                        results.append((int(leet_id), leet_problem, leet_link, f, leet_difficulty))
                         
         
         sorted_results = self.sortTuples(results)
@@ -46,10 +46,13 @@ class Leetcode_readme:
         return problems_solved
                     
     def stringBuilder(self, l_id, l_title, l_url, f_name, l_diff ):
-        str_row = f'|**{l_id}**| [{l_title}]({l_url}) | [python3]({f_name}/{f_name}.py) | {l_diff} |'
+        beautify_title = self.convert_case(l_title)
+        str_row = f'|**{l_id}**| [{beautify_title}]({l_url}) | [python3]({f_name}/{f_name}.py) | {l_diff} |'
         return str_row
     
-    
+    def convert_case(self, my_string):
+        my_string = my_string[0].upper() + my_string[1:]
+        return my_string.replace("-","%s" % " ")
 
 l = Leetcode_readme()
 l.urls_gen()
